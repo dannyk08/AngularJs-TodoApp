@@ -11,6 +11,10 @@ angular.module('todoApp')
   .controller('TodoCtrl', ['$scope','TodoService',function ($scope,TodoService) {
 
         $scope.todos=TodoService.todos;
+        $scope.criteria='all';
+        $scope.setCriteria=function(criteria){
+            $scope.criteria=criteria;
+        }
         $scope.addTodo=function(){
             TodoService.addTodo({text:$scope.newTodo.text,completed:false});
             $scope.newTodo.text='';

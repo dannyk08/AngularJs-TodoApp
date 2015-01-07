@@ -26,7 +26,7 @@
     </div>
 
 
-    <div ng-repeat="item in todos">
+    <div ng-repeat="item in todos | TodoFilter:criteria">
         <div>
             <input type="checkbox" ng-model="item.completed">
             <span ng-bind="item.text"></span>
@@ -35,8 +35,11 @@
     </div>
 
     <div>
-        <div><span><a href="#">All</a>|<a href="#">Active</a>|<a href="#">Completed</a></span></button></div>
-        <div><span>2 Items Completed</span>
+        <div><span>
+            <a href="#" ng-class="{'active':criteria=='all'}" ng-click="setCriteria('all')">All</a>|
+            <a href="#" ng-class="{'active':criteria=='active'}" ng-click="setCriteria('active')">Active</a>|
+            <a href="#" ng-class="{'active':criteria=='completed'}" ng-click="setCriteria('completed')">Completed</a></span></button></div>
+        <div><span>{{(todos|TodoFilter:'completed').length}} Items Completed</span>
             <button ng-click="clearCompleted()">Clear Completed</button>
         </div>
     </div>
@@ -62,6 +65,7 @@
 <script src="scripts/controllers/todo.js"></script>
 
 <script src="scripts/services/todo.js"></script>
+<script src="scripts/filters/todo.js"></script>
 <!-- endbuild -->
 </body>
 </html>

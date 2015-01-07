@@ -8,7 +8,7 @@
  * Service in the todoApp.
  */
 angular.module('todoApp')
-  .service('TodoService', function () {
+  .service('TodoService', [function () {
     return {
         todos:[],
         addTodo:function(todo){
@@ -25,4 +25,4 @@ angular.module('todoApp')
             }
         }
     };
-  });
+  }]);
