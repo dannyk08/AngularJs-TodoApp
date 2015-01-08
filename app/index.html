@@ -17,7 +17,9 @@
 <body ng-app="todoApp">
 
 
+
 <div ng-controller="TodoCtrl">
+
     <div>
         <form ng-submit="addTodo(newTodo.text)">
             <input type="text" ng-model="newTodo.text">
@@ -29,7 +31,7 @@
     <div ng-repeat="item in todos | TodoFilter:criteria">
         <div>
             <input type="checkbox" ng-model="item.completed">
-            <span ng-bind="item.text"></span>
+            <editable-label value="item.text"></editable-label>
             <button ng-click="delete(item)">x</button>
         </div>
     </div>
@@ -66,6 +68,7 @@
 
 <script src="scripts/services/todo.js"></script>
 <script src="scripts/filters/todo.js"></script>
+<script src="scripts/directives/editablelabel.js"></script>
 <!-- endbuild -->
 </body>
 </html>
