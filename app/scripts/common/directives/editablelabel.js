@@ -6,7 +6,7 @@
  * @description
  * # EditableLabel
  */
-angular.module('todoApp')
+angular.module('common',[])
     .directive('editableLabel',['$timeout',function ($timeout) {
         return {
             restrict: 'E',
@@ -14,7 +14,7 @@ angular.module('todoApp')
             scope: {
                 value: '='
             },
-            templateUrl: 'views/editablelabel.html',
+            templateUrl: 'scripts/common/views/editablelabel.html',
             link: function postLink(scope, element) {
                 var textBox=element.find('input')[0];
                 scope.editmode=false;

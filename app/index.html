@@ -17,7 +17,6 @@
 <body ng-app="todoApp">
 
 
-
 <div ng-controller="TodoCtrl">
 
     <div>
@@ -37,11 +36,16 @@
     </div>
 
     <div>
-        <div><span>
-            <a href="#" ng-class="{'active':criteria=='all'}" ng-click="setCriteria('all')">All</a>|
-            <a href="#" ng-class="{'active':criteria=='active'}" ng-click="setCriteria('active')">Active</a>|
-            <a href="#" ng-class="{'active':criteria=='completed'}" ng-click="setCriteria('completed')">Completed</a></span></button></div>
-        <div><span>{{(todos|TodoFilter:'completed').length}} Items Completed</span>
+        <div>
+            <span>
+                <a href="#" ng-class="{'active':criteria=='all'}" ng-click="setCriteria('all')">All</a>|
+                <a href="#" ng-class="{'active':criteria=='active'}" ng-click="setCriteria('active')">Active</a>|
+                <a href="#" ng-class="{'active':criteria=='completed'}"
+                   ng-click="setCriteria('completed')">Completed</a>
+            </span>
+        </div>
+        <div>
+            <span>{{(todos|TodoFilter:'completed').length}} Items Completed</span>
             <button ng-click="clearCompleted()">Clear Completed</button>
         </div>
     </div>
@@ -58,17 +62,22 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/common/common.module.js"></script>
+<script src="scripts/common/directives/editablelabel.js"></script>
+
+<script src="scripts/todo/todo.module.js"></script>
+<script src="scripts/todo/filters/todo.js"></script>
+<script src="scripts/todo/controllers/todo.js"></script>
+<script src="scripts/todo/services/todo.js"></script>
+
+
 <script src="scripts/app.js"></script>
 
-<script src="scripts/controllers/todo.js"></script>
-
-<script src="scripts/services/todo.js"></script>
-<script src="scripts/filters/todo.js"></script>
-<script src="scripts/directives/editablelabel.js"></script>
 <!-- endbuild -->
 </body>
 </html>

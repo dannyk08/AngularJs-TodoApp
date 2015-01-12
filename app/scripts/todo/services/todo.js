@@ -7,7 +7,7 @@
  * # todo
  * Service in the todoApp.
  */
-angular.module('todoApp')
+angular.module('todo')
   .service('TodoService', [function () {
     return {
         todos:[],

@@ -3,7 +3,7 @@
 describe('Filter: TodoFilter', function () {
 
   // load the filter's module
-  beforeEach(module('todoApp'));
+  beforeEach(module('todo'));
 
   // initialize a new instance of the filter before each test
   var TodoFilter;

@@ -3,7 +3,7 @@
 describe('Service: TodoService', function () {
 
   // load the service's module
-  beforeEach(module('todoApp'));
+  beforeEach(module('todo'));
 
   // instantiate service
   var TodoService;

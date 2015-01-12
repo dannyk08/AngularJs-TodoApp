@@ -7,7 +7,7 @@
  * # TodoCtrl
  * Controller of the todoApp
  */
-angular.module('todoApp')
+angular.module('todo')
   .controller('TodoCtrl', ['$scope','TodoService',function ($scope,TodoService) {
 
 

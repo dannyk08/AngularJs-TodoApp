@@ -9,4 +9,4 @@
  * Main module of the application.
  */
 angular
-  .module('todoApp', []);
+  .module('todoApp', ['common','todo','ui.bootstrap']);

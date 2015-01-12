@@ -8,7 +8,7 @@
  * # TodoFilter
  * Filter in the todoApp.
  */
-angular.module('todoApp')
+angular.module('todo')
   .filter('TodoFilter', [function () {
     return function (array,criteria) {
         var filteredArray=[];
