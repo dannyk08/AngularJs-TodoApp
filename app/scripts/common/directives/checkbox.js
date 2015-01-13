@@ -3,7 +3,7 @@
  */
 
 
-angular.module('common',[])
+angular.module('common')
     .directive('checkbox',[function () {
         return {
             restrict: 'E',
@@ -11,7 +11,12 @@ angular.module('common',[])
             scope: {
                 check: '='
             },
-            template: '<span class="col-md-1 glyphicon" ng-class="check?\'glyphicon-ok\': \'glyphicon-unchecked\'" ng-click="scope.check=!scope.check"></span>'
+            template: '<span class="col-md-1 glyphicon" ng-class="check?\'glyphicon-ok\': \'glyphicon-unchecked\'" ng-click="toggle()"></span>',
+            link: function postLink(scope, element) {
+                scope.toggle=function(){
+                    scope.check=!scope.check;
+                }
+            }
 
         }
     }]);

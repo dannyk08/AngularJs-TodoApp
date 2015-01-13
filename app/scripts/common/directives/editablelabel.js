@@ -6,7 +6,7 @@
  * @description
  * # EditableLabel
  */
-angular.module('common',[])
+angular.module('common')
     .directive('editableLabel',['$timeout',function ($timeout) {
         return {
             restrict: 'E',
