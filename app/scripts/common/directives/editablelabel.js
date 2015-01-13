@@ -16,6 +16,7 @@ angular.module('common',[])
             },
             templateUrl: 'scripts/common/views/editablelabel.html',
             link: function postLink(scope, element) {
+
                 var textBox=element.find('input')[0];
                 scope.editmode=false;
 
@@ -28,7 +29,6 @@ angular.module('common',[])
                 };
                 scope.commit=function(){
                     scope.editmode=false;
-
                 };
                 scope.cancel=function(){
                     scope.editmode=false;
@@ -36,6 +36,7 @@ angular.module('common',[])
                 };
 
                 scope.keypress=function(){
+                    console.log(event.keyCode);
                     if(event.keyCode===13){
                         scope.commit();
                     }

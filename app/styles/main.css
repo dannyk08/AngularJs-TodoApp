@@ -82,3 +82,11 @@ body {
 .active{
     background:#add8e6;
 }
+
+.box{
+    border:1px solid #808080;
+    border-radius: 5px;
+    padding:20px;
+    margin: 20px;
+    height:100%;
+}

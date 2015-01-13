@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -12,41 +12,80 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
     <!-- endbuild -->
 </head>
 <body ng-app="todoApp">
 
+<div class="container-fluid">
 
-<div ng-controller="TodoCtrl">
-
-    <div>
-        <form ng-submit="addTodo(newTodo.text)">
-            <input type="text" ng-model="newTodo.text">
-            <input type="submit" value="Submit">
-        </form>
+    <div class="jumbotron">
+        <h1><span class="glyphicon glyphicon-th-list"></span> Todo App Example</h1>
     </div>
 
 
-    <div ng-repeat="item in todos | TodoFilter:criteria">
-        <div>
-            <input type="checkbox" ng-model="item.completed">
-            <editable-label value="item.text"></editable-label>
-            <button ng-click="delete(item)">x</button>
-        </div>
-    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
 
-    <div>
-        <div>
-            <span>
-                <a href="#" ng-class="{'active':criteria=='all'}" ng-click="setCriteria('all')">All</a>|
-                <a href="#" ng-class="{'active':criteria=='active'}" ng-click="setCriteria('active')">Active</a>|
-                <a href="#" ng-class="{'active':criteria=='completed'}"
-                   ng-click="setCriteria('completed')">Completed</a>
-            </span>
-        </div>
-        <div>
-            <span>{{(todos|TodoFilter:'completed').length}} Items Completed</span>
-            <button ng-click="clearCompleted()">Clear Completed</button>
+                <div class="box">
+                    <h1><span class="glyphicon glyphicon-th-list"></span> Todo App</h1>
+
+                    <div ng-controller="TodoCtrl" ng-cloak>
+
+                        <div>
+                            <form ng-submit="addTodo(newTodo.text)" class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-xs-8">
+                                        <input class="form-control input-lg" type="text" ng-model="newTodo.text" placeholder="Enter Todo">
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Add Todo</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+
+                        <div ng-repeat="item in todos | TodoFilter:criteria" class="row">
+                            <div>
+                                <!--<checkbox check="item.completed"></checkbox>-->
+                                <span class="col-md-1 glyphicon" ng-class="item.completed?'glyphicon-ok': 'glyphicon-unchecked'" ng-click="item.completed=!item.completed"></span>
+                                <editable-label value="item.text" class="col-md-9"></editable-label>
+                                <button class="btn btn-danger btn-xs" ng-click="delete(item)" class="col-md-2"><span class="glyphicon glyphicon-remove"></span></button>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="todos.length<=0">
+                            <div class="col-xs-12">
+                                Please Add few Todos
+                            </div>
+                        </div>
+                        <div class="row" ng-show="todos.length>0">
+                            <div>
+                            <span>
+                                <a href="#" ng-class="{'active':criteria=='all'}" ng-click="setCriteria('all')">All</a>|
+                                <a href="#" ng-class="{'active':criteria=='active'}" ng-click="setCriteria('active')">Active</a>|
+                                <a href="#" ng-class="{'active':criteria=='completed'}"
+                                   ng-click="setCriteria('completed')">Completed</a>
+                            </span>
+                            </div>
+                            <div>
+                                <span><span class="badge">{{(todos|TodoFilter:'completed').length}}</span> Completed</span>
+                                <button class="btn btn-primary" ng-click="clearCompleted()">Clear Completed</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="box">
+                    <h3>App Description</h3>
+
+                    <p>blah blah blah</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -68,7 +107,10 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/common/common.module.js"></script>
+
+<!--<script src="scripts/common/directives/checkbox.js"></script>-->
 <script src="scripts/common/directives/editablelabel.js"></script>
+
 
 <script src="scripts/todo/todo.module.js"></script>
 <script src="scripts/todo/filters/todo.js"></script>
