@@ -35,16 +35,15 @@ angular.module('common',[])
                     scope.value=scope.oldValue;
                 };
 
-                scope.keypress=function(){
-                    console.log(event.keyCode);
-                    if(event.keyCode===13){
+
+                scope.keyup=function(){
+                    if(event.keyCode===13 ){
                         scope.commit();
                     }
-                };
-                scope.keyup=function(){
                     if(event.keyCode===27){
                         scope.cancel();
                     }
+
                 };
             }
         };

@@ -65,6 +65,11 @@
                                 Please Add few Todos
                             </div>
                         </div>
+                        <div class="row" ng-show="{{ (todos | TodoFilter:criteria).length <=0 && todos.length>0}}">
+                            <div class="col-xs-12">
+                                No Match Found
+                            </div>
+                        </div>
                         <div class="row voffset2" ng-show="todos.length>0">
                             <div class="col-xs-12">
                                 <a href="#" ng-class="{'active':criteria=='all'}" ng-click="setCriteria('all')">All</a>
