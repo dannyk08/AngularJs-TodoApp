@@ -49,13 +49,20 @@
                         </form>
 
 
-                        <div ng-repeat="item in todos | TodoFilter:criteria" class="row voffset1">
-                            <div>
+                        <div ng-repeat="item in todos | TodoFilter:criteria" class="row voffset1 note">
+                            <div class="col-xs-1 col">
                                 <checkbox check="item.completed"></checkbox>
-                                <editable-label value="item.text" class="col-xs-9"></editable-label>
-                                <button class="btn btn-danger btn-xs" ng-click="delete(item)" class="col-xs-2"><span
-                                        class="glyphicon glyphicon-remove"></span></button>
                             </div>
+                            <div class="col-xs-10 col">
+                                <editable-label value="item.text"></editable-label>
+                            </div>
+                            <div class="col-xs-1 col">
+                                <button class="btn btn-danger btn-xs" ng-click="delete(item)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+
+
                         </div>
                         <div class="row" ng-show="todos.length<=0">
                             <div class="col-xs-12">
@@ -84,9 +91,9 @@
                             <div class="col-xs-3">
                                 <span>
                                     <span
-                                        class="badge">{{(todos|TodoFilter:'completed').length}}</span> Completed</span>
+                                            class="badge">{{(todos|TodoFilter:'completed').length}}</span> Completed</span>
                             </div>
-                            <div class="col-xs-3 col-xs-offset-3">
+                            <div class="col-xs-3 col-xs-offset-6">
                                 <button class="btn btn-primary" ng-click="clearCompleted()">Clear Completed</button>
                             </div>
                         </div>
@@ -100,6 +107,13 @@
 
                     <p>This is a Todo App built using <code>AngularJS</code> and <code>BootStrap Directive for
                         AngularJS</code></p>
+
+                    Instructions -
+                    <ul>
+                        <li>Double click on the todo text to edit it</li>
+                    </ul>
+
+
                 </div>
             </div>
         </div>
@@ -126,7 +140,6 @@
 
 <script src="scripts/common/directives/checkbox.js"></script>
 <script src="scripts/common/directives/editablelabel.js"></script>
-
 
 
 <script src="scripts/todo/todo.module.js"></script>
