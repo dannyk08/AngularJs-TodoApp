@@ -8,7 +8,7 @@ describe('angularjs todo list', function() {
         element(by.model('newTodo.text')).sendKeys('write a protractor test\n');
         var todoList = element.all(by.repeater('item in todos'));
         expect(todoList.count()).toEqual(1);
-        expect(todoList.get(0).element(by.binding('item.text')).getText()).toEqual('write a protractor test');
+        expect(todoList.get(0).element(by.tagName('editable-label')).getText()).toEqual('write a protractor test');
     });
 
     it('should remove a todo', function() {
@@ -17,9 +17,9 @@ describe('angularjs todo list', function() {
         element(by.model('newTodo.text')).sendKeys('write a protractor test\n');
         var todoList = element.all(by.repeater('item in todos'));
         expect(todoList.count()).toEqual(1);
-        expect(todoList.get(0).element(by.binding('item.text')).getText()).toEqual('write a protractor test');
+        expect(todoList.get(0).element(by.tagName('editable-label')).getText()).toEqual('write a protractor test');
 
-        todoList.get(0).element(by.buttonText('x')).click();
+        todoList.get(0).element(by.className('glyphicon-remove')).click();
         var todoList = element.all(by.repeater('item in todos'));
         expect(todoList.count()).toEqual(0);
 

@@ -9,8 +9,6 @@ exports.config = {
         'browserName': 'chrome'
     }, {
         'browserName': 'firefox'
-    }, {
-        'browserName': 'safari'
     }
     ],
 

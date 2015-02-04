@@ -10,7 +10,8 @@
  */
 angular.module('todo')
   .filter('TodoFilter', [function () {
-    return function (array,criteria) {
+
+    var filter =  function (array,criteria) {
         var filteredArray=[];
         array.forEach(function(item){
             if(criteria==='all'){
@@ -25,4 +26,6 @@ angular.module('todo')
         });
         return filteredArray;
     };
+
+    return filter;
   }]);
