@@ -12,9 +12,17 @@ describe('Filter: TodoFilter', function () {
   }));
 
   it('should return the input prefixed with "TodoFilter filter:"', function () {
-    var text = 'angularjs';
-      console.log(text);
-    //expect(TodoFilter(text)).toBe('TodoFilter filter: ' + text);
+
+    var array = [{'text':'Todo 1',completed:false},{'text':'Todo 2',completed:false},{'text':'Todo 3',completed:true},]
+    var filteredArray = TodoFilter(array,'all');
+    expect(filteredArray.length).toBe(3);
+
+    filteredArray = TodoFilter(array,'active');
+    expect(filteredArray.length).toBe(2);
+
+    filteredArray = TodoFilter(array,'completed');
+    expect(filteredArray.length).toBe(1);
+
   });
 
 });
