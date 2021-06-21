@@ -1,16 +1,15 @@
-import angular from "angular";
+import { IScope } from "angular";
 
-import { Todo } from "../filters/todo";
+import { Todo } from "../filters/todo.filter";
+import { TodoService } from "../services/todo.service";
 
-/**
- * @ngdoc function
- * @name todoApp.controller:TodoCtrl
- * @description
- * # TodoCtrl
- * Controller of the todoApp
- */
-angular.module('todo')
-  .controller('TodoCtrl', ['$scope', 'TodoService', function ($scope, TodoService) {
+export class TodoController {
+  constructor(
+    $scope: IScope & any,
+    TodoService: TodoService,
+  ) {
+    'ngInject'
+
     $scope.todos = TodoService.todos;
     $scope.criteria = 'all';
     $scope.setCriteria = function (criteria: string) {
@@ -28,4 +27,6 @@ angular.module('todo')
     $scope.clearCompleted = function () {
       TodoService.clearCompleted();
     };
-  }]);
+  }
+
+}

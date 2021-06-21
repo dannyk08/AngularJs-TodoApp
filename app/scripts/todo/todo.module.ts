@@ -1,5 +1,11 @@
-/**
- * Created by rohitghatol on 1/12/15.
- */
+import angular from 'angular';
 
-angular.module('todo', []);
+
+import { TodoFilter } from './filters/todo.filter'
+import { TodoService } from './services/todo.service';
+import { TodoController } from './controllers/todo.controller';
+
+export default angular.module('todoApp.todo', [])
+  .controller('TodoCtrl', TodoController)
+  .filter('TodoFilter', TodoFilter)
+  .service('TodoService', TodoService)

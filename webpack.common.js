@@ -38,8 +38,17 @@ module.exports = function commonConfig(options = {}) {
         },
         {
           test: /\.ts?$/i,
-          loader: 'ts-loader',
           exclude: /node_modules/,
+          include: resolve(__dirname, 'app'),
+          use: [
+            'babel-loader',
+            {
+              loader: 'ts-loader',
+              options: {
+                transpileOnly: true
+              }
+            },
+          ]
         },
       ]
     },

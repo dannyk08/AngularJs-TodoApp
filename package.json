@@ -19,7 +19,12 @@
     "angular-touch": "1.6.10"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
     "@types/angular": "^1.8.1",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-angularjs-annotate": "^0.10.0",
     "clean-webpack-plugin": "*",
     "copy-webpack-plugin": "^9.0.0",
     "fork-ts-checker-webpack-plugin": "^6.2.12",

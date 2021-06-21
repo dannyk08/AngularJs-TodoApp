@@ -1,9 +1,7 @@
-import angular from "angular";
-
-import { Todo } from "../filters/todo";
+import { Todo } from "../filters/todo.filter";
 
 export class TodoService {
-  todos: Todo[]
+  todos: Todo[] = []
 
   addTodo(todo: Todo) {
     this.todos.push(todo);
@@ -21,12 +19,3 @@ export class TodoService {
     }
   }
 }
-
-/**
- * @ngdoc service
- * @name todoApp.todo
- * @description
- * # todo
- * Service in the todoApp.
- */
-angular.module('todo').service('TodoService', [TodoService])
