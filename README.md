@@ -1,17 +1,12 @@
 # Purpose
 Taken Rohit angulajs TODO app and transition it into webpack + react leaf components
 
-AngularJs-TodoApp
-=================
-
+## AngularJs-TodoApp
 Todo App written in AngularJS using best practices
 
-
-Demo
-====
+### Demo
 Visit this link for the Demo - http://rohitghatol.github.io/AngularJs-TodoApp/
 
 
-Screenshot
-=====
+### Screenshot
 ![alt tag](https://raw.githubusercontent.com/rohitghatol/AngularJs-TodoApp/master/Todo-App.png)
