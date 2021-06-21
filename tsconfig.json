@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./target/",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": false,
+    "noImplicitReturns": false,
+    "allowJs": true,
+    "module": "es6",
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "dom",
+      "es2017.object",
+      "es2018.promise"
+    ]
+  },
+  "types": [],
+  "exclude": [
+    "node_modules"
+  ]
+}
