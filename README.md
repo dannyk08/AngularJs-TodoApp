@@ -1,3 +1,6 @@
+# Purpose
+Taken Rohit angulajs TODO app and transition it into webpack + react leaf components
+
 AngularJs-TodoApp
 =================
 
