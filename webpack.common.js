@@ -21,7 +21,7 @@ module.exports = function commonConfig(options = {}) {
 
   return {
     entry: {
-      app: './app/scripts/app.js',
+      app: './app/scripts/app.ts',
     },
     output: {
       filename: 'js/[name].js',
@@ -29,6 +29,37 @@ module.exports = function commonConfig(options = {}) {
     },
     externals: {
       angular: 'angular',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.html$/i,
+          loader: 'html-loader',
+        },
+        {
+          test: /\.ts?$/i,
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+        },
+      ]
+    },
+    resolve: {
+      extensions: ['.ts', '.js']
+    },
+    externals: {
+      'angular': 'angular',
+      'angular-animate': 'angular-animate',
+      'angular-cookies': 'angular-cookies',
+      'angular-route': 'angular-route',
+      'ui-bootstrap-tpls': 'ui-bootstrap-tpls',
+      'angular-touch': 'angular-touch',
+      'angular-resource': 'angular-resource',
+      'angular-sanitize': 'angular-sanitize',
+      'angular-messages': 'angular-messages',
+      'angular-breadcrumb': 'angular-breadcrumb',
+      'ngStorage': 'ngStorage',
+      'angular-file-upload': 'angular-file-upload',
+      'angular-idle': 'angular-idle',
     },
     plugins: [
       new CleanWebpackPlugin(),

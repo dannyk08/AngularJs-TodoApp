@@ -1,4 +1,6 @@
-'use strict';
+import angular, { IScope } from 'angular'
+
+import template from './../views/editable-label.html'
 
 /**
  * @ngdoc directive
@@ -10,12 +12,11 @@ angular.module('common')
   .directive('editableLabel', ['$timeout', function ($timeout) {
     return {
       restrict: 'E',
-
       scope: {
         value: '='
       },
-      templateUrl: 'scripts/common/views/editablelabel.html',
-      link: function postLink(scope, element) {
+      template,
+      link: function postLink(scope: IScope & any, element) {
 
         var textBox = element.find('input')[0];
         scope.editmode = false;
@@ -36,7 +37,7 @@ angular.module('common')
         };
 
 
-        scope.keyup = function () {
+        scope.keyup = function (event: KeyboardEvent) {
           if (event.keyCode === 13) {
             scope.commit();
           }

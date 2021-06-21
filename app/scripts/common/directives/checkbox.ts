@@ -1,3 +1,7 @@
+import angular, { IScope } from 'angular'
+
+import template from './../views/checkbox.html'
+
 angular.module('common')
   .directive('checkbox', [function () {
     return {
@@ -5,8 +9,8 @@ angular.module('common')
       scope: {
         check: '='
       },
-      template: '<span class="col-md-1 glyphicon" ng-class="check?\'glyphicon-ok\': \'glyphicon-unchecked\'" ng-click="toggle()"></span>',
-      link: function postLink(scope, element) {
+      template,
+      link: function postLink(scope: IScope & any) {
         scope.toggle = function () {
           scope.check = !scope.check;
         }

@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "./target/",
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "suppressImplicitAnyIndexErrors": false,
     "noImplicitReturns": false,
-    "allowJs": true,
-    "module": "es6",
-    "target": "es5",
     "lib": [
       "es2015",
       "dom",
