@@ -1,6 +1,6 @@
-import { IComponentOptions, IController, IScope } from "angular";
-import { Todo } from "../../filters/todo.filter";
-import { Criteria, TodoService } from "../../services/todo.service";
+import { IComponentOptions, IController } from "angular";
+import { Criteria, Todo } from "../../filters/todo.filter";
+import { TodoService } from "../../services/todo.service";
 
 import template from './dashboard.component.html'
 
@@ -14,8 +14,12 @@ export class DashboardController implements IController {
   ) {
     'ngInject'
 
-    this.todos = this.TodoService.todos
     this.criteria = this.TodoService.criteria
+    this.setTodos()
+  }
+
+  private setTodos() {
+    this.todos = this.TodoService.todos
   }
 
   $onInit() {
@@ -24,19 +28,32 @@ export class DashboardController implements IController {
 
   setCriteria(criteria: Criteria) {
     this.TodoService.criteria = criteria;
+    this.criteria = this.TodoService.criteria
   };
 
   addTodo() {
-    this.TodoService.addTodo(this.currentTodo);
-    this.currentTodo.text = ''
+    if (this.currentTodo.text.length) {
+      this.TodoService.addTodo(new Todo(this.currentTodo));
+
+      this.currentTodo.text = ''
+      this.setTodos()
+    }
+
   };
 
-  delete(todo: Todo) {
-    this.TodoService.delete(todo);
+  delete(index: number) {
+    this.TodoService.delete(index);
+    this.setTodos()
   };
 
   clearCompleted() {
     this.TodoService.clearCompleted();
+    this.setTodos()
+  };
+
+  clearAll() {
+    this.TodoService.clearAll();
+    this.setTodos()
   };
 
 }

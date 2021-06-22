@@ -4,9 +4,8 @@ import BootstrapModule from './bootstrap/bootstrap.module'
 import CommonModule from './common/common.module'
 import TodoModule from './todo/todo.module'
 
-const appName = 'todoApp'
 const app = angular
-  .module(appName, [
+  .module('todoApp', [
     'ui.bootstrap',
     BootstrapModule.name,
     CommonModule.name,
@@ -14,5 +13,5 @@ const app = angular
   ])
 
 angular.element(document).ready(() =>
-  angular.bootstrap(document.getElementById(appName), [app.name])
+  angular.bootstrap(document.getElementById(app.name), [app.name])
 )

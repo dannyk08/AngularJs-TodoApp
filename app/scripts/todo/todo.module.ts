@@ -6,5 +6,5 @@ import { TodoService } from './services/todo.service';
 
 export default angular.module('todoApp.todo', [])
   .component('dashboardComponent', DashboardComponent)
-  .filter('TodoFilter', TodoFilter)
+  .filter('todoFilter', TodoFilter)
   .service('TodoService', TodoService)

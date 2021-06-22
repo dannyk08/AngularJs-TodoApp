@@ -1,11 +1,4 @@
-import { Todo } from "../filters/todo.filter";
-
-export enum Criteria {
-  all = 'all',
-  active = 'active',
-  completed = 'completed',
-}
-
+import { Criteria, Todo } from "../filters/todo.filter";
 
 export class TodoService {
   todos: Todo[] = []
@@ -14,15 +7,19 @@ export class TodoService {
   addTodo(todo: Todo) {
     this.todos.push(todo);
   }
-  delete(todo: Todo) {
 
-    this.todos.splice(this.todos.indexOf(todo), 1);
+  delete(index: number) {
+    this.todos.splice(index, 1);
   }
-  clearCompleted() {
 
+  clearAll() {
+    this.todos = []
+  }
+
+  clearCompleted() {
     for (var index = this.todos.length - 1; index >= 0; index--) {
       if (this.todos[index].completed === true) {
-        this.todos.splice(this.todos.indexOf(this.todos[index]), 1);
+        this.delete(index)
       }
     }
   }

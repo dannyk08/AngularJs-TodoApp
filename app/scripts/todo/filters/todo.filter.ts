@@ -1,3 +1,9 @@
+export enum Criteria {
+  all = 'all',
+  active = 'active',
+  completed = 'completed',
+}
+
 export class Todo {
   completed?: boolean
   text?: string
@@ -12,19 +18,21 @@ export class Todo {
 }
 
 export function TodoFilter() {
-  return function (array: Todo[], criteria: string) {
+  return function (array: Todo[], criteria: Criteria) {
     var filteredArray: Todo[] = [];
+
     (array || []).forEach(function (item) {
-      if (criteria === 'all') {
+      if (criteria === Criteria.all) {
         filteredArray.push(item);
       }
-      else if (criteria === 'active' && item.completed === false) {
+      else if (criteria === Criteria.active && item.completed === false) {
         filteredArray.push(item);
       }
-      else if (criteria === 'completed' && item.completed === true) {
+      else if (criteria === Criteria.completed && item.completed === true) {
         filteredArray.push(item);
       }
     });
+
     return filteredArray;
   };
 }
