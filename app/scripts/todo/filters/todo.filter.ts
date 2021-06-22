@@ -1,6 +1,14 @@
-export interface Todo {
-  completed?: boolean,
-  text?: string,
+export class Todo {
+  completed?: boolean
+  text?: string
+
+  constructor(obj: Partial<Todo>) {
+    obj = obj || {}
+
+    this.completed = obj.completed || false
+    this.text = obj.text || null
+  }
+
 }
 
 export function TodoFilter() {

@@ -1,7 +1,15 @@
 import { Todo } from "../filters/todo.filter";
 
+export enum Criteria {
+  all = 'all',
+  active = 'active',
+  completed = 'completed',
+}
+
+
 export class TodoService {
   todos: Todo[] = []
+  criteria: Criteria = Criteria.all
 
   addTodo(todo: Todo) {
     this.todos.push(todo);

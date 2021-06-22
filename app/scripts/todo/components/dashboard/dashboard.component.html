@@ -1,0 +1,88 @@
+<pre>
+  {{$ctrl.currentTodo}}
+</pre>
+
+<!-- <div ng-controller="TodoCtrl"
+     ng-cloak
+     class="voffset4">
+
+
+  <form ng-submit="addTodo(newTodo.text)"
+        class="form-horizontal">
+    <div class="form-group">
+      <div class="col-xs-8">
+        <input class="form-control input-lg"
+               type="text"
+               ng-model="newTodo.text"
+               placeholder="Enter Todo">
+      </div>
+      <div class="col-xs-4">
+        <button type="submit"
+                class="btn btn-primary btn-lg">Add Todo</button>
+      </div>
+    </div>
+
+  </form>
+
+
+  <div ng-repeat="item in todos | TodoFilter:criteria"
+       class="row voffset1 note">
+    <div class="col-xs-1 col">
+      <checkbox check="item.completed"></checkbox>
+    </div>
+    <div class="col-xs-10 col">
+      <editable-label value="item.text"></editable-label>
+    </div>
+    <div class="col-xs-1 col">
+      <button class="btn btn-danger btn-xs"
+              ng-click="delete(item)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </button>
+    </div>
+
+
+  </div>
+  <div class="row"
+       ng-show="todos.length<=0">
+    <div class="col-xs-12">
+      Please Add few Todos
+    </div>
+  </div>
+  <div class="row"
+       ng-show="{{ (todos | TodoFilter:criteria).length <=0 && todos.length>0}}">
+    <div class="col-xs-12">
+      No Match Found
+    </div>
+  </div>
+  <div class="row voffset2"
+       ng-show="todos.length>0">
+    <div class="col-xs-12">
+      <a href="#"
+         ng-class="{'active':criteria=='all'}"
+         ng-click="setCriteria('all')">All</a>
+
+      |
+      <a href="#"
+         ng-class="{'active':criteria=='active'}"
+         ng-click="setCriteria('active')">Active</a>
+
+      |
+      <a href="#"
+         ng-class="{'active':criteria=='completed'}"
+         ng-click="setCriteria('completed')">Completed</a>
+    </div>
+
+  </div>
+  <div class="row voffset2"
+       ng-show="todos.length>0">
+    <div class="col-xs-3">
+      <span>
+        <span class="badge">{{(todos|TodoFilter:'completed').length}}</span> Completed</span>
+    </div>
+    <div class="col-xs-3 col-xs-offset-6">
+      <button class="btn btn-primary"
+              ng-click="clearCompleted()">Clear Completed</button>
+    </div>
+  </div>
+
+</div> -->
