@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge')
 
-const commonConfig = require('./webpack.common.js');
+const commonConfig = require('./webpack.common.js')
 
 module.exports = (_, webpackArgs) => {
   const { mode = 'development' } = webpackArgs || {}
@@ -12,11 +12,5 @@ module.exports = (_, webpackArgs) => {
     }
   }), {
     devtool: 'inline-source-map',
-    devServer: {
-      compress: true,
-      port: 9000,
-      disableHostCheck: true,
-      historyApiFallback: true,
-    },
   })
 };

@@ -4,8 +4,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInjector = require('html-webpack-injector');
-var { HtmlWebpackSkipAssetsPlugin } = require('html-webpack-skip-assets-plugin');
+const { HtmlWebpackSkipAssetsPlugin } = require('html-webpack-skip-assets-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlTagsWebpackPlugin = require('html-webpack-tags-plugin')
+
+const { dependencies } = require('./dependencies');
 
 /**
  *
@@ -16,10 +19,12 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
  */
 module.exports = function commonConfig(options = {}) {
   const {
+    mode = 'development',
     definePluginOptions = {},
-  } = options
+  } = options || {}
 
   return {
+    mode,
     entry: {
       app: './app/scripts/app.ts',
     },
@@ -91,6 +96,11 @@ module.exports = function commonConfig(options = {}) {
       }),
       new HtmlWebpackInjector(),
       new HtmlWebpackSkipAssetsPlugin(),
+      new HtmlTagsWebpackPlugin({
+        append: false,
+        usePublicPath: false,
+        scripts: dependencies(mode == 'production'),
+      }),
     ]
   }
 }
