@@ -5,8 +5,9 @@
     "node": ">=v14.16.0"
   },
   "scripts": {
+    "prestart": "npm i",
     "start": "webpack serve --inline --hot --mode development --config webpack.dev.js",
-    "test": "grunt test"
+    "test": "echo \"Test will work soon\""
   },
   "dependencies": {
     "angular": "1.6.10",
