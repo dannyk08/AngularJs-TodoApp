@@ -1,8 +1,9 @@
 import angular from "angular";
+import { react2angular } from "react2angular";
 
-import { CheckboxDirective } from "./directives/checkbox";
-import { EditableLabelDirective } from "./directives/editable-label";
+import CheckboxComponent from "./ui/checkbox";
+import LabelPillComponent from "./ui/label-pill";
 
 export default angular.module('todoApp.common', [])
-  .directive('checkbox', CheckboxDirective)
-  .directive('editableLabel', EditableLabelDirective)
+  .component('checkbox', react2angular(CheckboxComponent))
+  .component('labelPill', react2angular(LabelPillComponent))

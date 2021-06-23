@@ -14,13 +14,15 @@ const { dependencies } = require('./dependencies');
  *
  * @param {Object} options
  * @param {Object} options.definePluginOptions
- * @param {Object} options.mode
+ * @param {String} options.mode
+ * @param {String[]} options.externalScripts
  * @returns webpack config
  */
 module.exports = function commonConfig(options = {}) {
   const {
     mode = 'development',
     definePluginOptions = {},
+    externalScripts = [],
   } = options || {}
 
   return {
@@ -42,6 +44,18 @@ module.exports = function commonConfig(options = {}) {
           loader: 'html-loader',
         },
         {
+          test: /\.tsx?$/i,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+              envName: mode,
+            }
+          }
+        },
+        {
           test: /\.ts?$/i,
           exclude: /node_modules/,
           include: resolve(__dirname, 'app'),
@@ -58,7 +72,7 @@ module.exports = function commonConfig(options = {}) {
       ]
     },
     resolve: {
-      extensions: ['.ts', '.js']
+      extensions: ['.tsx', '.ts', '.js']
     },
     externals: {
       'angular': 'angular',
@@ -74,6 +88,8 @@ module.exports = function commonConfig(options = {}) {
       'ngStorage': 'ngStorage',
       'angular-file-upload': 'angular-file-upload',
       'angular-idle': 'angular-idle',
+      'react': 'React',
+      'react-dom': 'ReactDOM',
     },
     plugins: [
       new CleanWebpackPlugin(),
@@ -99,7 +115,7 @@ module.exports = function commonConfig(options = {}) {
       new HtmlTagsWebpackPlugin({
         append: false,
         usePublicPath: false,
-        scripts: dependencies(mode == 'production'),
+        scripts: dependencies(mode == 'production').concat(externalScripts),
       }),
     ]
   }

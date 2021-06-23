@@ -1,7 +1,7 @@
 <div>
   <h4>
     <span>Current todos</span>
-    <span class="badge bg-primary rounded-pill">{{$ctrl.todos.length}}</span>
+    <label-pill value="$ctrl.todos.length"></label-pill>
 
     <button type="button"
             class="btn btn-link"
@@ -37,10 +37,8 @@
             'btn-primary': $ctrl.criteria == 'all',
           }">
     <span>All</span>
-    <span class="badge rounded-pill"
-          ng-class="{
-            'bg-primary': $ctrl.criteria != 'all'
-          }">{{($ctrl.todos | todoFilter: 'all').length}}</span>
+    <label-pill value="($ctrl.todos | todoFilter: 'all').length"
+                class-name="[$ctrl.criteria != 'all' ? 'bg-primary': '']"></label-pill>
   </label>
 
   <input type="radio"
@@ -58,10 +56,8 @@
             'btn-primary': $ctrl.criteria == 'active',
           }">
     <span>Active</span>
-    <span class="badge rounded-pill"
-          ng-class="{
-            'bg-primary': $ctrl.criteria != 'active'
-          }">{{($ctrl.todos | todoFilter: 'active').length}}</span>
+    <label-pill value="($ctrl.todos | todoFilter: 'active').length"
+                class-name="[$ctrl.criteria != 'active' ? 'bg-primary': '']"></label-pill>
   </label>
 
   <input type="radio"
@@ -79,10 +75,8 @@
             'btn-primary': $ctrl.criteria == 'completed',
           }">
     <span>Completed</span>
-    <span class="badge rounded-pill"
-          ng-class="{
-            'bg-primary': $ctrl.criteria != 'completed'
-          }">{{($ctrl.todos | todoFilter: 'completed').length}}</span>
+    <label-pill value="($ctrl.todos | todoFilter: 'completed').length"
+                class-name="[$ctrl.criteria != 'completed' ? 'bg-primary': '']"></label-pill>
   </label>
 </div>
 
