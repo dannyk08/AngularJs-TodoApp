@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-export default class CheckboxComponent extends Component {
+export default class Checkbox extends Component {
   render() {
     return (
       <div>

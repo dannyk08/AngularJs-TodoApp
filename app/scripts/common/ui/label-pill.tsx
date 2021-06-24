@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-interface LabelPillComponentI {
+export interface LabelPillComponentI {
   value: number,
   className: string[],
 }
 
-class LabelPillComponent extends Component<LabelPillComponentI> {
+class LabelPill extends Component<LabelPillComponentI> {
   static propTypes: any
 
   render() {
@@ -22,9 +22,11 @@ class LabelPillComponent extends Component<LabelPillComponentI> {
   }
 }
 
-LabelPillComponent.propTypes = {
+export const LabelPillPropTypes = {
   value: PropTypes.number,
   className: PropTypes.arrayOf(PropTypes.string),
 }
 
-export default LabelPillComponent
+LabelPill.propTypes = { ...LabelPillPropTypes }
+
+export default LabelPill

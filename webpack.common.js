@@ -115,7 +115,15 @@ module.exports = function commonConfig(options = {}) {
       new HtmlTagsWebpackPlugin({
         append: false,
         usePublicPath: false,
-        scripts: dependencies(mode == 'production').concat(externalScripts),
+        scripts: dependencies(mode == 'production')
+          .concat(externalScripts)
+          .map(path => ({
+            path,
+            publicPath: false,
+            attributes: {
+              'crossorigin': 'anonymous'
+            }
+          })),
       }),
     ]
   }

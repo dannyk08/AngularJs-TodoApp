@@ -1,4 +1,4 @@
-import { IComponentOptions, IController } from "angular";
+import { IComponentOptions, IController, IScope } from "angular";
 import { Criteria, Todo } from "../../filters/todo.filter";
 import { TodoService } from "../../services/todo.service";
 
@@ -11,9 +11,9 @@ export class DashboardController implements IController {
 
   constructor(
     private TodoService: TodoService,
+    private $scope: IScope,
   ) {
     'ngInject'
-
     this.criteria = this.TodoService.criteria
     this.setTodos()
   }
@@ -55,6 +55,12 @@ export class DashboardController implements IController {
     this.TodoService.clearAll();
     this.setTodos()
   };
+
+  onCriteriaChange = (event: MouseEvent) => {
+    const { target } = event || {}
+    this.criteria = target && (<any>target).value
+    this.$scope.$apply()
+  }
 
 }
 

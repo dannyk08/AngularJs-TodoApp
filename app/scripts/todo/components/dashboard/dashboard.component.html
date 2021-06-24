@@ -1,7 +1,7 @@
 <div>
   <h4>
     <span>Current todos</span>
-    <label-pill value="$ctrl.todos.length"></label-pill>
+    <r-label-pill value="$ctrl.todos.length"></r-label-pill>
 
     <button type="button"
             class="btn btn-link"
@@ -22,62 +22,56 @@
 </form>
 
 <div class="my-4">
-  <input type="radio"
-         class="btn-check"
-         name="criteria"
-         autocomplete="off"
-         value="all"
-         id="criteria_all"
-         ng-checked="$ctrl.criteria == 'all'"
-         ng-click="$ctrl.setCriteria('all')" />
-  <label for="criteria_all"
-         class="btn"
-         ng-class="{
-            'btn-link': $ctrl.criteria != 'all',
-            'btn-primary': $ctrl.criteria == 'all',
-          }">
-    <span>All</span>
-    <label-pill value="($ctrl.todos | todoFilter: 'all').length"
-                class-name="[$ctrl.criteria != 'all' ? 'bg-primary': '']"></label-pill>
-  </label>
+  <r-button-radio-w-pill radio-props="{
+                           id: 'all',
+                           name: 'criteria',
+                           value: 'all',
+                           className: [
+                              $ctrl.criteria != 'all' ? 'btn-link' : '',
+                              $ctrl.criteria == 'all' ? 'btn-primary': '',
+                            ],
+                            onClick: $ctrl.onCriteriaChange,
+                          }"
+                         label-pill-props="{
+                           value: ($ctrl.todos | todoFilter: 'all').length,
+                           className: [$ctrl.criteria != 'all' ? 'bg-primary': ''],
+                         }"
+                         label="'All'">
+  </r-button-radio-w-pill>
 
-  <input type="radio"
-         class="btn-check"
-         name="criteria"
-         autocomplete="off"
-         value="active"
-         id="criteria_active"
-         ng-checked="$ctrl.criteria == 'active'"
-         ng-click="$ctrl.setCriteria('active')" />
-  <label for="criteria_active"
-         class="btn"
-         ng-class="{
-            'btn-link': $ctrl.criteria != 'active',
-            'btn-primary': $ctrl.criteria == 'active',
-          }">
-    <span>Active</span>
-    <label-pill value="($ctrl.todos | todoFilter: 'active').length"
-                class-name="[$ctrl.criteria != 'active' ? 'bg-primary': '']"></label-pill>
-  </label>
+  <r-button-radio-w-pill radio-props="{
+                           id: 'active',
+                           name: 'criteria',
+                           value: 'active',
+                           className: [
+                              $ctrl.criteria != 'active' ? 'btn-link' : '',
+                              $ctrl.criteria == 'active' ? 'btn-primary': '',
+                            ],
+                            onClick: $ctrl.onCriteriaChange,
+                          }"
+                         label-pill-props="{
+                           value: ($ctrl.todos | todoFilter: 'active').length,
+                           className: [$ctrl.criteria != 'active' ? 'bg-primary': ''],
+                         }"
+                         label="'Active'">
+  </r-button-radio-w-pill>
 
-  <input type="radio"
-         class="btn-check"
-         name="criteria"
-         autocomplete="off"
-         value="completed"
-         id="criteria_completed"
-         ng-checked="$ctrl.criteria == 'completed'"
-         ng-click="$ctrl.setCriteria('completed')" />
-  <label for="criteria_completed"
-         class="btn"
-         ng-class="{
-            'btn-link': $ctrl.criteria != 'completed',
-            'btn-primary': $ctrl.criteria == 'completed',
-          }">
-    <span>Completed</span>
-    <label-pill value="($ctrl.todos | todoFilter: 'completed').length"
-                class-name="[$ctrl.criteria != 'completed' ? 'bg-primary': '']"></label-pill>
-  </label>
+  <r-button-radio-w-pill radio-props="{
+                           id: 'completed',
+                           name: 'criteria',
+                           value: 'completed',
+                           className: [
+                              $ctrl.criteria != 'completed' ? 'btn-link' : '',
+                              $ctrl.criteria == 'completed' ? 'btn-primary': '',
+                            ],
+                            onClick: $ctrl.onCriteriaChange,
+                          }"
+                         label-pill-props="{
+                           value: ($ctrl.todos | todoFilter: 'completed').length,
+                           className: [$ctrl.criteria != 'completed' ? 'bg-primary': ''],
+                         }"
+                         label="'Completed'">
+  </r-button-radio-w-pill>
 </div>
 
 <hr class="my-2"

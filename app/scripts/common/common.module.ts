@@ -1,9 +1,9 @@
 import angular from "angular";
-import { react2angular } from "react2angular";
 
-import CheckboxComponent from "./ui/checkbox";
-import LabelPillComponent from "./ui/label-pill";
+import commonComposedModule from "./composed/composed.module";
+import commonUiModule from "./ui/ui.module";
 
-export default angular.module('todoApp.common', [])
-  .component('checkbox', react2angular(CheckboxComponent))
-  .component('labelPill', react2angular(LabelPillComponent))
+export default angular.module('todoApp.common', [
+  commonComposedModule.name,
+  commonUiModule.name,
+])
